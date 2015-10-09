@@ -102,6 +102,11 @@ public class Vector4f {
 		float u3 = 0; // ignoring this for now
 		return new Vector4f(u0, u1, u2, u3);
 	}
+	
+	@Override
+	public String toString() {
+		return "(" + x + ", " + y + ", " + z + ")";
+	}
 
 }
 

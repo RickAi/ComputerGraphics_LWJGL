@@ -1,3 +1,4 @@
+
 import java.nio.FloatBuffer;
 
 import org.lwjgl.BufferUtils;
@@ -59,16 +60,17 @@ public class MainWindow {
 
 	// static GLfloat light_position[] = {0.0, 100.0, 100.0, 0.0};
 
-	public FloatBuffer ConvertForGL(float[] ToConvert) {
+	public FloatBuffer ConvertForGL(float[] ToConvert)
+
+	{
 		FloatBuffer Any4 = BufferUtils.createFloatBuffer(4);
-		Any4.put(ToConvert[0]).put(ToConvert[1]).put(ToConvert[2])
-				.put(ToConvert[3]).flip();
+		Any4.put(ToConvert[0]).put(ToConvert[1]).put(ToConvert[2]).put(ToConvert[3]).flip();
 		return Any4;
 	}
 
 	public void start() {
 		try {
-			Display.setDisplayMode(new DisplayMode(800, 800));
+			Display.setDisplayMode(new DisplayMode(1200, 800));
 			Display.create();
 		} catch (LWJGLException e) {
 			e.printStackTrace();
@@ -177,8 +179,7 @@ public class MainWindow {
 																	// position
 																	// of the
 																	// light
-		// GL11.glEnable(GL11.GL_LIGHT0); // switch light #0 on // I've setup
-		// specific materials so in real light it will look abit strange
+		// GL11.glEnable(GL11.GL_LIGHT0); // switch light #0 on // I've setup specific materials so in real light it will look abit strange 
 
 		GL11.glLight(GL11.GL_LIGHT1, GL11.GL_POSITION, lightPos); // specify the
 																	// position
@@ -201,7 +202,7 @@ public class MainWindow {
 																	// of the
 																	// light
 		GL11.glEnable(GL11.GL_LIGHT3); // switch light #0 on
-		GL11.glLight(GL11.GL_LIGHT3, GL11.GL_DIFFUSE, ConvertForGL(grey));
+		 GL11.glLight(GL11.GL_LIGHT3, GL11.GL_DIFFUSE, ConvertForGL(grey));
 
 		GL11.glEnable(GL11.GL_LIGHTING); // switch lighting on
 		GL11.glEnable(GL11.GL_DEPTH_TEST); // make sure depth buffer is switched
@@ -222,32 +223,30 @@ public class MainWindow {
 	}
 
 	public void renderGL() {
-		// First drawing a Tetrahedron in the corner
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
-		GL11.glColor3f(0.5f, 0.5f, 1.0f);
+		// First drawing a Tetrahedron in the corner 
+		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); 
+		GL11.glColor3f(0.5f, 0.5f, 1.0f); 
 		GL11.glPushMatrix();
-		GL11.glTranslatef(200, 650, 0);
+		GL11.glTranslatef(200, 650, 0); 
 		GL11.glRotatef(45, 0f, 1f, 0f);
-		GL11.glRotatef(rotation, 1f, 1f, -1f);
+		GL11.glRotatef(rotation, 1f, 1f, -1f); 
 		Tetrahedron My4die = new Tetrahedron();
 		GL11.glScalef(90f, 90f, 90f);
 		GL11.glColor3f(red[0], red[1], red[2]);
-		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE,
-				ConvertForGL(red));
+		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE, ConvertForGL(red)); 
 		My4die.DrawTetrahedron();
 
 		GL11.glPopMatrix();
 
 		// cube draw
 		GL11.glPushMatrix();
-		GL11.glTranslatef(600, 600, 0);
+		GL11.glTranslatef(600, 600, 0); 
 		GL11.glRotatef(45, 0f, 1f, 0f);
-		GL11.glRotatef(rotation, 1f, 1f, -1f);
+		GL11.glRotatef(rotation, 1f, 1f, -1f); 
 		Cube MyCube = new Cube();
 		GL11.glScalef(90f, 90f, 90f);
 		GL11.glColor3f(blue[0], blue[1], blue[2]);
-		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE,
-				ConvertForGL(blue));
+		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE, ConvertForGL(blue));
 
 		MyCube.DrawCube();
 
@@ -255,14 +254,13 @@ public class MainWindow {
 
 		// Octahedron Draw
 		GL11.glPushMatrix();
-		GL11.glTranslatef(1000, 600, 0);
+		GL11.glTranslatef(1000, 600, 0); 
 		GL11.glRotatef(-45, 0f, 1f, 1f);
-		GL11.glRotatef(rotation, 1f, 1f, -1f);
+		GL11.glRotatef(rotation, 1f, 1f, -1f); 
 		Octahedron MyOctahedron = new Octahedron();
 		GL11.glScalef(90f, 90f, 90f);
 		GL11.glColor3f(yellow[0], yellow[1], yellow[2]);
-		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE,
-				ConvertForGL(yellow));
+		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE, ConvertForGL(yellow));
 
 		MyOctahedron.DrawOctahedron();
 
@@ -270,14 +268,13 @@ public class MainWindow {
 
 		// Icosahedron Draw
 		GL11.glPushMatrix();
-		GL11.glTranslatef(200, 200, 0);
+		GL11.glTranslatef(200, 200, 0); 
 		GL11.glRotatef(45, 0f, 1f, 0f);
-		GL11.glRotatef(rotation, 1f, 1f, -1f);
+		GL11.glRotatef(rotation, 1f, 1f, -1f); 
 		Icosahedron MyIcosahedron = new Icosahedron();
 		GL11.glScalef(90f, 90f, 90f);
 		GL11.glColor3f(green[0], green[1], green[2]);
-		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE,
-				ConvertForGL(green));
+		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE, ConvertForGL(green));
 
 		MyIcosahedron.DrawIcosahedron();
 
@@ -285,15 +282,14 @@ public class MainWindow {
 
 		// Cylinder Draw
 		GL11.glPushMatrix();
-		GL11.glTranslatef(600, 250, 0);
+		GL11.glTranslatef(600, 250, 0); 
 		GL11.glRotatef(45, 0f, 1f, 0f);
 		GL11.glRotatef(rotation, 1f, 0f, 0f);
 		// GL11.glTranslatef(-x, -y, 0);
 		Cylinder MyCylinder = new Cylinder();
 		GL11.glScalef(90f, 90f, 90f);
 		GL11.glColor3f(magenta[0], magenta[1], magenta[2]);
-		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE,
-				ConvertForGL(magenta));
+		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE, ConvertForGL(magenta));
 
 		MyCylinder.DrawCylinder(0.5f, 1.5f, 100);
 
@@ -301,14 +297,13 @@ public class MainWindow {
 
 		// Sphere Draw
 		GL11.glPushMatrix();
-		GL11.glTranslatef(1000, 250, 0);
+		GL11.glTranslatef(1000, 250, 0); 
 		GL11.glRotatef(45, 0f, 1f, 0f);
-		GL11.glRotatef(rotation, 1f, 0f, 0f);
+		GL11.glRotatef(rotation, 1f, 0f, 0f); 
 		Sphere MySphere = new Sphere();
 		GL11.glScalef(90f, 90f, 90f);
 		GL11.glColor3f(cyan[0], cyan[1], cyan[2]);
-		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_SPECULAR,
-				ConvertForGL(cyan));
+		GL11.glMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_SPECULAR, ConvertForGL(cyan));
 
 		MySphere.DrawSphere(1f, 70, 70);
 
