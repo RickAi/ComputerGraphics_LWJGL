@@ -31,7 +31,6 @@ public class Cylinder {
 			GL11.glVertex3f(x2, y2, 0.0f);
 
 			// upper triangle
-//			glNormal(new Vector4f(x1, y1, 0.0f, 0.0f), new Vector4f(x2, y2, 1.0f, 0.0f));
 			GL11.glNormal3f(x1, y1, 0.0f);
 			GL11.glVertex3f(x1, y1, 0.0f);
 			GL11.glNormal3f(x2, y2, 0.0f);

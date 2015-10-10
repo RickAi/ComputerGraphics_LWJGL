@@ -27,6 +27,7 @@ public class Tetrahedron {
 				new Point4f(1.0f, -1.0f, 1.0f, 0.0f),
 				new Point4f(1.0f, 1.0f, -1.0f, 0.0f), };
 
+		// 4 points
 		int[][] faces = { { 0, 1, 2 }, { 0, 1, 3 }, { 0, 2, 3 }, { 1, 2, 3 }, };
 
 		GL11.glBegin(GL11.GL_TRIANGLES);

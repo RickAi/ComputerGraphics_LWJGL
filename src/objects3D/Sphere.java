@@ -24,12 +24,35 @@ public class Sphere {
 		GL11.glBegin(GL11.GL_QUADS);
 		for (float theta = -PI; theta < PI; theta += inctheta) {
 			for (float phi = -(PI / 2.0f); phi < (PI / 2.0f); phi += incphi) {
+				// notice the line should in order
+				// up-left point
 				x = (float) (radius * Math.cos(phi) * Math.cos(theta));
 				y = (float) (radius * Math.cos(phi) * Math.sin(theta));
 				z = (float) (radius * Math.sin(phi));
-				
 				GL11.glNormal3f(x, y, z);
 				GL11.glVertex3f(x, y, z);
+
+				// up-right point
+				x = (float) (Math.cos(phi) * Math.cos(theta + inctheta) * radius);
+				y = (float) (Math.cos(phi) * Math.sin(theta + inctheta) * radius);
+				z = (float) (Math.sin(phi) * radius);
+				GL11.glNormal3f(x, y, z);
+				GL11.glVertex3f(x, y, z);
+				
+				// down-right point
+				x = (float) (Math.cos(phi + incphi) * Math.cos(theta + inctheta) * radius);
+				y = (float) (Math.cos(phi + incphi) * Math.sin(theta + inctheta) * radius);
+				z = (float) (Math.sin(phi + incphi) * radius);
+				GL11.glNormal3f(x, y, z);
+				GL11.glVertex3f(x, y, z);
+				
+				// down-left point
+				x = (float) (Math.cos(phi + incphi) * Math.cos(theta) * radius);
+				y = (float) (Math.cos(phi + incphi) * Math.sin(theta) * radius);
+				z = (float) (Math.sin(phi + incphi) * radius);
+				GL11.glNormal3f(x, y, z);
+				GL11.glVertex3f(x, y, z);
+				
 			}
 		}
 		GL11.glEnd();

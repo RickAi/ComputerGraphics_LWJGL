@@ -38,6 +38,7 @@ public class Cube {
 			Vector4f w = vertices[faces[face][2]]
 					.minusPoint(vertices[faces[face][0]]);
 			Vector4f normal = v.cross(w).normal();
+			// only need one normal for this face
 			GL11.glNormal3f(normal.x, normal.y, normal.z);
 
 			// two triangle can merge to a square/rectangle
